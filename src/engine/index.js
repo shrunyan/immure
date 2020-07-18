@@ -1,18 +1,11 @@
 "use strict";
 
-import hotkeys from "hotkeys-js";
+import { controls } from "./controls";
 
 export function start() {
   console.log("Engine:start");
 
   try {
-    // const startInput = document.getElementById("startInput");
-
-    // startInput.onclick = function () {
-
-    // };
-    // startInput.click();
-
     if (document.fullscreenEnabled) {
       document.documentElement.requestFullscreen();
 
@@ -30,24 +23,13 @@ export function start() {
         evt.returnValue = "";
       });
 
-      //   const press = ;
-      //   press.then((something) => console.log(something));
+      controls();
     }
 
     // Works
     //   hotkeys("command+r,ctrl+r,command+shift+r,ctrl+shift+r", (event, handler) => {
     //     event.preventDefault();
     //     console.log("handle", handler.key, event);
-    //   });
-
-    //   hotkeys("up-arrow,right-arrow,down-arrow,left-arrow", (evt, handler) => {
-    //     switch (handler.key) {
-    //       case "up-arrow":
-    //         console.log("up-arrow");
-    //         break;
-    //       default:
-    //         alert(evt);
-    //     }
     //   });
   } catch (err) {
     console.error(err);
