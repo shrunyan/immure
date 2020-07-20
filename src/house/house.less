@@ -3,11 +3,13 @@
   padding: 0;
 }
 .House {
+  // cursor: crosshair;
   background-color: #000;
   height: 100vh;
   width: 100vw;
 
   main {
+    color: #EFEFEF;
     height: 100vh;
     width: 100vw;
 
@@ -17,9 +19,24 @@
     justify-content: center;
 
     button {
+      cursor: not-allowed;
       color: red;
       background: none;
       border: none;
+
+      font-family: "Permanent Marker";
+      font-size: 26px;
+      padding: 16px;
     }
   }
+}
+
+.disorient {
+  cursor: none;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
