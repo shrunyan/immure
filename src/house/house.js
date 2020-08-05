@@ -40,6 +40,8 @@ export function House(props, store) {
           <Room />
         )}
       </main>
+
+      <div id="notWorthy" class={style.notWorthy}></div>
     </section>
   );
 }

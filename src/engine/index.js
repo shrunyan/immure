@@ -6,7 +6,7 @@ export function start() {
   console.log("Engine:start");
 
   try {
-    if (document.fullscreenEnabled) {
+    if (document.fullscreenEnabled && navigator.getUserMedia) {
       document.documentElement.requestFullscreen();
 
       // requires fullscreen. prevent default browser key commands. e.g. ctrl + w
@@ -15,7 +15,6 @@ export function start() {
       // prevent right click context menu
       document.addEventListener("contextmenu", (evt) => {
         console.log("hahaha no escape");
-
         // Cancel the event
         // If you prevent default behavior in Mozilla Firefox prompt will always be shown
         evt.preventDefault();
@@ -24,6 +23,13 @@ export function start() {
       });
 
       controls();
+
+      // trigger camera permissions request
+      navigator.getUserMedia(
+        { video: true, audio: true },
+        () => {},
+        () => {}
+      );
     }
 
     // Works
@@ -32,6 +38,7 @@ export function start() {
     //     console.log("handle", handler.key, event);
     //   });
   } catch (err) {
-    console.error(err);
+    console.error("exit", err);
+    document.querySelector("#notWorthy").innerHTML = "<h1>NOT WORTHY</h1>";
   }
 }
